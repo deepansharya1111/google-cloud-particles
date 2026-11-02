@@ -967,34 +967,6 @@ export class ParticlePortalApp {
     });
     this.floorMesh = new THREE.Mesh(floorGeo, this.floorMat);
     this.portalGroup.add(this.floorMesh);
-
-    // 4. Flanking 3D Architectural Reticle Arrows (`<───` and `───>`)
-    const buildBracketGeometry = (dirSign) => {
-      const positions = new Float32Array([
-        // Horizontal stem
-        dirSign * 0.35, 0.0, 0.0,
-        dirSign * 0.45, 0.0, 0.0,
-        // Chevron upper wing
-        dirSign * 0.45, 0.0, 0.0,
-        dirSign * 0.425, 0.018, 0.0,
-        // Chevron lower wing
-        dirSign * 0.45, 0.0, 0.0,
-        dirSign * 0.425, -0.018, 0.0,
-      ]);
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      return geo;
-    };
-    const bracketMat = new THREE.LineBasicMaterial({
-      color: 0xf4f8ff,
-      transparent: true,
-      opacity: 0.52,
-      depthWrite: false,
-    });
-    this.leftBracket = new THREE.LineSegments(buildBracketGeometry(-1), bracketMat);
-    this.rightBracket = new THREE.LineSegments(buildBracketGeometry(1), bracketMat);
-    this.portalGroup.add(this.leftBracket);
-    this.portalGroup.add(this.rightBracket);
   }
 
   _initAmbientSnow() {
