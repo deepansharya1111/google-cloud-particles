@@ -1,0 +1,27 @@
+# macOS / OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+*.secret
+credentials.json
+
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Node / Editor / Logs
+node_modules/
+.vscode/
+.idea/
+*.log
+npm-debug.log*
